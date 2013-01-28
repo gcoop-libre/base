@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="stylesheets/style.css" rel="stylesheet">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.1.min.js">
+    </script><script type="text/javascript" src="socket.io.js"></script>
+    <script>    
+
+WEB_SOCKET_SWF_LOCATION = "/WebSocketMain.swf";
+WEB_SOCKET_DEBUG = true;
+
+// socket.io specific code
+var socket = io.connect();
+
+socket.on('result', message);
+
+socket.on('reconnect', function () {
+    $('#lines').remove();
+    message('Reconnected to the server');
+});
+
+socket.on('reconnecting', function () {
+    message('Attempting to re-connect to the server');
+});
+
+socket.on('error', function (e) {
+    message(e ? e : 'A unknown error occurred');
+});
+
+/*
+ * Agrega un mensaje dentro del elemento que representa la salida estándar (y error)
+ * del comando.
+ *
+ * TODO: enviar en el mensaje a qué salida pertenece, negro prodría ser stdout y
+ *       y rojo strerr (yeah, que cool !).
+ */
+function message(msg) {
+  $('#lines').append("<p>" + msg.replace("\n", "<br/>"));
+}
+
+
+// dom manipulation
+$(function () {
+
+    $('#send-command').submit(function () {
+	    socket.emit('execute command', $('#command').val());
+	    clear();
+	    $('#lines').get(0).scrollTop = 10000000;
+	    return false;
+    });
+
+    message("Escribe un comando, como 'ls' por ejemplo");
+
+    function clear () {
+        $('#command').val('').focus();
+    };
+});
+    </script>
+  </head>
+<body>
+  <div id="terminal">
+
+    <div id="output">
+      <pre id="lines"></pre>
+    </div>
+
+    <form id="send-command">
+      <input id="command">
+      <button>Ejecutar</button>
+    </form>
+
+  </div>
+</body>
+</html>
