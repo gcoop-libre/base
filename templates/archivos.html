@@ -8,8 +8,25 @@
 
 <h1>Archivos</h1>
 
-{% for x in archivos %}
-    {{ x }}
-{% endfor %}
+  <table class="table table-bordered table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Nombre de archivo</th>
+        <th>Subido por ...</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    {% for x in archivos %}
+        <tr>
+          <td>{{ x }}</td>
+          <td>Anónimo</td>
+          <td><a class='btn btn-small' href='/descargar/{{ x }}'>Descargar</a></td>
+        </tr>
+    {% endfor %}
+
+    </tbody>
+  </table>
 
 {% endblock %}
