@@ -2,7 +2,7 @@
 from gevent import monkey
 monkey.patch_all()
 
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, send_from_directory
 
 from socketio import socketio_manage
 from socketio.namespace import BaseNamespace
@@ -38,6 +38,10 @@ def chat():
 @app.route('/acercade')
 def acercade():
     return render_template('acercade.html')
+
+@app.route('/descargar/<path:filename>')
+def descargar(filename):
+    return send_from_directory('uploads', filename, as_attachment=True)
 
 @app.route("/socket.io/<path:path>")
 def run_socketio(path):
