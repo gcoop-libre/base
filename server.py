@@ -3,6 +3,9 @@ from werkzeug.wsgi import SharedDataMiddleware
 from socketio.server import SocketIOServer
 from app import app
 
+from flask.ext.bootstrap import Bootstrap
+Bootstrap(app)
+
 if __name__ == '__main__':
     print 'Iniciando el servidor en http://localhost:8000'
     app.debug = True
