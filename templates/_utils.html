@@ -1,0 +1,36 @@
+{% macro menu(url_actual) -%}
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="container" style="width: auto;">
+
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+
+      <a class="brand" href="/">sharedot</a>
+      {% set items = [('/', 'Principal'),
+                      ('/archivos', 'Archivos'),
+                      ('/chat', 'Chat'),
+                      ('/acercade', 'Acerca de ...'),
+                      ] %}
+
+      <div class="nav-collapse">
+        <ul class="nav pull-right">
+          {% for url, item in items %}
+
+          {% if url == url_actual %}
+              <li class='active'><a href="{{url}}">{{item}}</a></li>
+            {% else %}
+              <li><a href="{{url}}">{{item}}</a></li>
+            {% endif %}
+
+          {% endfor %}
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+{%- endmacro %}

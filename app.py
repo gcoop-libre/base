@@ -20,9 +20,24 @@ class TerminalNamespace(BaseNamespace):
 
 # Flask routes
 app = Flask(__name__)
+
 @app.route('/')
 def index():
     return render_template('home.html')
+
+@app.route('/archivos')
+def archivos():
+    import os
+    archivos = os.listdir('uploads')
+    return render_template('archivos.html', archivos=archivos)
+
+@app.route('/chat')
+def chat():
+    return render_template('chat.html')
+
+@app.route('/acercade')
+def acercade():
+    return render_template('acercade.html')
 
 @app.route("/socket.io/<path:path>")
 def run_socketio(path):

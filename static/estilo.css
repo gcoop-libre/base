@@ -879,3 +879,14 @@ i[class^="icon-"]{opacity:0.8;}
 .show{display:block;}
 .invisible{visibility:hidden;}
 .affix{position:fixed;}
+
+
+@media (max-width: 767px)
+body {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+div.content_body {
+    margin: 10px;
+}
