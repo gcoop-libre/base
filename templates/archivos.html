@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block body_content %}
+<script type="text/javascript" src="socket.io.js"></script>
 
 <h1>Archivos</h1>
 
@@ -21,7 +22,7 @@
         Por favor selecciona un archivo de tu equipo para compartir:
 
         <p>
-        <form class="form-search" enctype='multipart/form-data' action='/subir_archivo' method='post'>
+        <form id='form-subir' class="form-search" enctype='multipart/form-data' action='/subir_archivo' method='post'>
 
           <p>
             <input type="file" name='file' class="input-medium search-query">
@@ -36,6 +37,11 @@
 
 <script>
 document.ready = function() {
+  WEB_SOCKET_SWF_LOCATION = "/WebSocketMain.swf";
+  WEB_SOCKET_DEBUG = true;
+
+  var socket = io.connect();
+
   var file_input = $('input[name="file"]');
   var boton_subir = $('#boton_subir');
 
@@ -50,6 +56,17 @@ document.ready = function() {
     boton_subir.css('display', 'inline');
     boton_subir.focus();
   });
+
+
+  $("#form-subir").submit(function() {
+    socket.emit('publicar', 'pepe', '123123');
+  });
+
+
+
+
+
+
 };
 </script>
 

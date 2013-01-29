@@ -7,7 +7,6 @@
 {% block body_content %}
 
 <script type="text/javascript" src="socket.io.js"></script>
-
 <script>    
 document.ready = function() {
   WEB_SOCKET_SWF_LOCATION = "/WebSocketMain.swf";
@@ -17,6 +16,8 @@ document.ready = function() {
   
   function imprimir_mensaje(usuario, mensaje) {
     $('#salida').append("<p><b>" + usuario + "</b> dice: " + mensaje);
+    var box = document.getElementById('box')
+    box.scrollTop = box.scrollHeight;
   }
 
   socket.on('conversacion', imprimir_mensaje);
@@ -27,8 +28,6 @@ document.ready = function() {
         socket.emit('enviar mensaje', "{{nombre}}", $('#mensaje').val());
         $("#mensaje").val("").focus();
 
-        var box = document.getElementById('box')
-        box.scrollTop = box.scrollHeight;
         return false;
       });
   });

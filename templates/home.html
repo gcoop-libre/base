@@ -7,7 +7,38 @@
 {% block body_content %}
 <h1>Principal</h1>
 
-<p>Bievenido <strong>{{nombre}}</strong>, esta sección le notificará sobre los archivos
+
+<p>Bienvenido <strong>{{nombre}}</strong>, esta sección le notificará sobre los archivos
 que otras personas compartan.
+
+<div id="box" style="margin:1em;width:100%; height:200px; background: #FFF; overflow:auto;">
+	<div class="inner">
+    <div id="salida">
+    </div>
+	</div>
+</div>
+
+
+<script type="text/javascript" src="socket.io.js"></script>
+<script>    
+document.ready = function() {
+  WEB_SOCKET_SWF_LOCATION = "/WebSocketMain.swf";
+  WEB_SOCKET_DEBUG = true;
+
+  var socket = io.connect();
+  
+  function imprimir_mensaje_sube_archivo(usuario, nombre) {
+    $('#salida').append("<p><b>" + usuario + "</b> subió un nuevo archivo: " + nombre);
+    var box = document.getElementById('box')
+    box.scrollTop = box.scrollHeight;
+  }
+
+  socket.on('publicacion', imprimir_mensaje_sube_archivo);
+};
+</script>
+
+
+
+
 
 {% endblock %}
