@@ -1,10 +1,13 @@
 {% extends "base.html" %}
 
 {% block body_head %}
-  {{ utils.menu("/") }}
+  {{ utils.menu("/home") }}
 {% endblock %}
 
 {% block body_content %}
+<h1>Principal</h1>
 
-  <h1>Principal</h1>
+<p>Bievenido <strong>{{nombre}}</strong>, esta sección le notificará sobre los archivos
+que otras personas compartan.
+
 {% endblock %}
