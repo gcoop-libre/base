@@ -9,31 +9,49 @@
 <h1>Archivos</h1>
 
 <div class="accordion" id="accordion2">
-                <div class="accordion-group">
-                  <div class="accordion-heading">
-                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-                      Subir un nuevo archivo
-                    </a>
-                  </div>
-                  <div id="collapseOne" class="accordion-body collapse" style="height: 0px;">
-                    <div class="accordion-inner">
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+        Subir un nuevo archivo
+      </a>
+    </div>
+    <div id="collapseOne" class="accordion-body collapse" style="height: 0px;">
+      <div class="accordion-inner">
 
-                      Por favor selecciona un archivo de tu equipo para compartir:
+        Por favor selecciona un archivo de tu equipo para compartir:
 
-                      <p>
-                        <form class="form-search">
+        <p>
+        <form class="form-search" enctype='multipart/form-data' action='/subir_archivo' method='post'>
 
-                          <p>
-                            <input type="file" class="input-medium search-query">
-                            <p>
-                            <input type="submit" class="btn btn-info">
-                        </form>
+          <p>
+            <input type="file" name='file' class="input-medium search-query">
+          <p>
+            <input class='btn' id='explorar' value='Explorar ... '> <input type="submit" class="btn btn-info" value='Subir archivo' id='boton_subir'>
+        </form>
 
-                    </div>
-                  </div>
-                </div>
-              </div>
+      </div>
+    </div>
+  </div>
+</div>
 
+<script>
+document.ready = function() {
+  var file_input = $('input[name="file"]');
+  var boton_subir = $('#boton_subir');
+
+  file_input.css('display', 'none');
+  boton_subir.css('display', 'none');
+
+  $('#explorar').click(function() {
+    file_input.click()
+  });
+
+  file_input.change(function() {
+    boton_subir.css('display', 'inline');
+    boton_subir.focus();
+  });
+};
+</script>
 
 
 

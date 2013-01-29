@@ -5,7 +5,9 @@ from app import app
 
 from flask.ext.bootstrap import Bootstrap
 Bootstrap(app)
+
 app.config['BOOTSTRAP_USE_MINIFIED'] = False
+app.config['SECRET_KEY'] = "AF233B"
 
 if __name__ == '__main__':
     print 'Iniciando el servidor en http://localhost:8000'
