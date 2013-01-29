@@ -40,7 +40,8 @@ def home():
 @app.route('/archivos')
 def archivos():
     archivos = os.listdir('uploads')
-    return render_template('archivos.html', archivos=archivos)
+    nombre = session.get('nombre', 'anonimo')
+    return render_template('archivos.html', nombre=nombre, archivos=archivos)
 
 @app.route('/chat')
 def chat():
