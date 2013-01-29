@@ -59,7 +59,8 @@ document.ready = function() {
 
 
   $("#form-subir").submit(function() {
-    socket.emit('publicar', 'pepe', '123123');
+    var nombre_archivo = $("input[name='file']").val();
+    socket.emit('publicar', '{{nombre}}', nombre_archivo);
   });
 
 
