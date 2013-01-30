@@ -19,12 +19,12 @@ Usamos el código inicial que escribió [kcarnold](https://github.com/kcarnold),
 para tener un código inicial de integración con socketio y flask.
 
 
-Un buen comienzo para investigar es la biblioteca de 
-[Alexandre Bourget](https://github.com/abourget) y su biblioteca
+Un buen comienzo para investigar el enfoque de esta aplicación Es
+el trabajo de [Alexandre Bourget](https://github.com/abourget) y su biblioteca
 [gevent-socketio](https://github.com/abourget/gevent-socketio).
 
-También hay una presentación muy buena de Bourget en Youtube donde muestra
-algunos conceptos:
+También hay una presentación muy buena de Bourget en Youtube donde
+muestra algunos conceptos (en particular el minuto 25):
 
 http://youtu.be/zhh_N5pmHBY?t=24m52s
 
