@@ -8,6 +8,9 @@ acceso a Internet.
 Sharedot está inspirado en piratebox, aunque requiere equipos con recursos
 suficientes para utilizar celery, flask y gunicorn.
 
+![](https://raw.github.com/hugoruscitti/sharedot/master/preview.png)
+
+
 Agradecimientos
 ---------------
 
