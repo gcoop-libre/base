@@ -1,5 +1,5 @@
-sharedot
-========
+Base
+====
 
 Sharedot es un servidor web para compartir archivos, pensando para eventos de
 tecnología y sprints de programación, en donde muchas veces no se cuenta con
@@ -8,7 +8,7 @@ acceso a Internet.
 Sharedot está inspirado en piratebox, aunque requiere equipos con recursos
 suficientes para utilizar celery, flask y gunicorn.
 
-![](https://raw.github.com/hugoruscitti/sharedot/master/preview.png)
+![](https://raw.github.com/hugoruscitti/base/master/preview.png)
 
 
 Agradecimientos
@@ -33,7 +33,7 @@ Cómo instalarlo
 
 Es aconsejable comenzar con un entorno virtual, algo así:
 
-    mkvirtualenv sharedot
+    mkvirtualenv base
     pip install -r requirements.txt
     python server.py
 
