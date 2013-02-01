@@ -1,11 +1,11 @@
 Base
 ====
 
-Sharedot es un servidor web para compartir archivos, pensando para eventos de
+**Base** es un servidor web para compartir archivos, pensando para eventos de
 tecnología y sprints de programación, en donde muchas veces no se cuenta con
 acceso a Internet.
 
-Sharedot está inspirado en piratebox, aunque requiere equipos con recursos
+**Base** está inspirado en piratebox, aunque requiere equipos con recursos
 suficientes para utilizar celery, flask y gunicorn.
 
 ![](https://raw.github.com/hugoruscitti/base/master/preview.png)
