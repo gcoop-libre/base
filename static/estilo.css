@@ -890,3 +890,23 @@ body {
 div.content_body {
     margin: 10px;
 }
+
+
+
+
+div.footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+    color:red;
+}
+
+div#divPush {
+
+}
+
+div.footer input {
+    width: 50%;
+}
+
+
