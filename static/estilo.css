@@ -899,6 +899,7 @@ div.footer {
     width: 100%;
     bottom: 0px;
     color:red;
+    height: 6em;
 }
 
 div#divPush {
@@ -910,3 +911,12 @@ div.footer input {
 }
 
 
+
+#box {
+    overflow: hidden;
+    position: absolute;
+    overflow-y: scroll;
+    top: 120px;
+    bottom: 6em; 
+    width: 90%;
+}
