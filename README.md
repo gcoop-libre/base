@@ -35,6 +35,6 @@ Es aconsejable comenzar con un entorno virtual, algo así:
 
     mkvirtualenv base
     pip install -r requirements.txt
-    python server.py
+    honcho start
 
 Luego ingresa en la aplicación en http://localhost:8000
