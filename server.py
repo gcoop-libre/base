@@ -1,3 +1,6 @@
+from gevent import monkey
+monkey.patch_all()
+
 import os
 from werkzeug.wsgi import SharedDataMiddleware
 from socketio.server import SocketIOServer
@@ -8,6 +11,10 @@ Bootstrap(app)
 
 app.config['BOOTSTRAP_USE_MINIFIED'] = False
 app.config['SECRET_KEY'] = "AF233B"
+
+import views
+
+
 
 if __name__ == '__main__':
     print 'Iniciando el servidor en http://localhost:8000'

@@ -912,11 +912,3 @@ div.footer input {
 
 
 
-#box {
-    overflow: hidden;
-    position: absolute;
-    overflow-y: scroll;
-    top: 120px;
-    bottom: 6em; 
-    width: 90%;
-}
