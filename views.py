@@ -2,9 +2,9 @@ from app import app
 
 from flask import request
 from flask import render_template
-from flask import send_from_directory
 from flask import redirect
 from flask import session
+from flask import make_response
 
 from socketio import socketio_manage
 import realtime
@@ -40,9 +40,13 @@ def chat():
 def acercade():
     return render_template('acercade.html')
 
-@app.route('/descargar/<path:filename>')
-def descargar(filename):
-    return send_from_directory('uploads', filename, as_attachment=True)
+@app.route('/descargar/<_id>')
+def descargar(_id):
+    modelo_archivo = models.Archivo.objects(_id).first()
+    return str([modelo_archivo])
+    response = make_response(modelo_archivo.archivo.read())
+    response.mimetype = modelo_archivo.archivo.content_type
+    return response
 
 @app.route('/subir_archivo', methods=['GET', 'POST'])
 def subir_archivo():
