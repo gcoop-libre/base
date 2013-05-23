@@ -31,6 +31,10 @@ http://youtu.be/zhh_N5pmHBY?t=24m52s
 Cómo instalarlo
 ---------------
 
+Primero necesitás algunos paquetes escenciales:
+
+    sudo apt-get install gcc virtualenv python-dev build-essential libevent-dev mongodb-server
+
 Es aconsejable comenzar con un entorno virtual, algo así:
 
     mkvirtualenv base
@@ -38,3 +42,8 @@ Es aconsejable comenzar con un entorno virtual, algo así:
     honcho start
 
 Luego ingresa en la aplicación en http://localhost:8000
+
+Si instalas Base en una virtual de OpenVZ, reemplazá el archivo Procfile por Procfile.openvz:
+
+    mv Procfile.openvz Procfile
+
